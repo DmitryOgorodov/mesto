@@ -6,3 +6,9 @@
   justify-content: flex-start;
   margin: 40px 0 0;
 }
+
+@media (max-width: 960px) {
+  .profile {
+    flex-direction: column;
+  }
+}

@@ -1,4 +1,4 @@
-.profile__edit-button {
+.profile__title-button {
   height: 24px;
   width: 24px;
   border: 1px solid #FFFFFF;
@@ -8,4 +8,12 @@
   background-color: black;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+@media (max-width: 960px) {
+  .profile__title-button {
+    height: 18px;
+    width: 18px;
+    margin-left: 10px;
+  }
 }

@@ -5,3 +5,11 @@
   font-size: 18px;
   line-height: 22px;
 }
+
+@media (max-width: 960px) {
+  .profile__caption {
+    margin-top: 14px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
