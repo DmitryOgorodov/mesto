@@ -1,0 +1,9 @@
+.element {
+  height: 362px;
+  width: 282px;
+  display: flex;
+  flex-direction: column;
+  background-image: url(../../images/Rectangle.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
