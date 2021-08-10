@@ -7,6 +7,10 @@
     cursor: url(../../../images/Cursor.png) ,pointer;
   }
 
+  .header__logo:active {
+    background-image: url(../../../images/Header_logo_b.svg);
+  }
+
   @media (max-width: 823px) {
     .header__logo{
       width: 103px;
