@@ -1,0 +1,26 @@
+.popup {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 330px;
+  width: 430px;
+  position: absolute;
+  left: 50%;
+  top: 195px;
+  transform: translate(-50%);
+  background-image: url(../../images/Popup_Rectangle.png);
+  background-position: center;
+  display: none;
+}
+
+
+
+@media (max-width: 823px) {
+  .popup {
+    top: 123px;
+    height: 322px;
+    width: 282px;
+    background-image: url(../../images/Rectangle_low.png);
+  }
+}

@@ -1,0 +1,21 @@
+.popup__content {
+  border: none;
+  height: 35px;
+  width: 358px;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 28px;
+  color: #000000;
+  margin: 0 36px 20px;
+  background-image: url(../../../images/Line_2.png);
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+@media (max-width: 823px) {
+  .popup__content {
+    line-height: 35px;
+    width: 238px;
+    margin: 0 22px 20px;
+  }
+}

@@ -4,4 +4,13 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-image: url(../../../images/Header-logo.svg);
+    cursor: url(../../../images/Cursor.png) ,pointer;
+  }
+
+  @media (max-width: 823px) {
+    .header__logo{
+      width: 103px;
+      height: 24px;
+      background-image: url(../../../images/Header_logo_litle.png);
+    }
   }
