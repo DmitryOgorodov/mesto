@@ -4,7 +4,7 @@ let saveButton = document.querySelector(".popup__save-button");
 let closeButton = document.querySelector(".popup__clouse-button");
 
 // Находим форму в DOM
-let formElement = document.querySelector(".popup");
+let formElement = document.querySelector(".pop");
 
 // Находим поля формы в DOM
 let nameInput = document.querySelector('#nameInput');
@@ -30,14 +30,14 @@ function formSubmitHandler (evt) {
 
 // Открыть форму
 function openPopup() {
-  formElement.classList.toggle("popup_is-opened");
+  formElement.classList.toggle("pop_is-opened");
   nameInput.value = document.querySelector('.profile__title-text').textContent;
   jobInput.value = document.querySelector('.profile__caption').textContent;
 }
 
 // Скрыть форму
 function closePopup() {
-  formElement.classList.toggle("popup_is-opened");
+  formElement.classList.toggle("pop_is-opened");
 }
 
 // Прикрепляем обработчик к форме:
