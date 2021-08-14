@@ -1,12 +1,15 @@
 .popup__save-button {
   height: 50px;
   width: 358px;
+  border: none;
+  border-radius: 2px;
   background-color: black;
-  margin: 27px 36px 0;
+  margin: 27px 36px 35px;
   font-size: 18px;
   line-height: 50px;
   text-align: center;
-  cursor: url(../../../images/Cursor.png) ,pointer;
+  color: white;
+  cursor: url(../../../images/Cursor.svg) ,pointer;
 }
 
 .popup__save-button:hover {

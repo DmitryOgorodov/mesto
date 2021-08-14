@@ -1,11 +1,13 @@
 .popup__clouse-button {
   height: 32px;
   width: 32px;
+  border: none;
   position: absolute;
   top: -40px;
   right: -40px;
-  background-image: url(../../../images/Close_Icon.png);
-  cursor: url(../../../images/Cursor.png) ,pointer;
+  background: none;
+  background-image: url(../../../images/Close_Icon.svg);
+  cursor: url(../../../images/Cursor.svg) ,pointer;
 }
 
 .popup__clouse-button:hover {

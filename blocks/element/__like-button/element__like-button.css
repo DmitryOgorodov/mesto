@@ -8,7 +8,7 @@
   border: none;
   margin-right: 20px;
   align-self: center;
-  cursor: url(../../../images/Cursor.png) ,pointer;
+  cursor: url(../../../images/Cursor.svg) ,pointer;
 }
 
 .element__like-button:hover {
@@ -16,6 +16,6 @@
 }
 
 .element__like-button:active {
-  background-image: url(../../../images/Union.png);
+  background-image: url(../../../images/Union.svg);
   opacity: 1;
 }

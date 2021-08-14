@@ -2,6 +2,34 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 74px;
-  margin: 0;
+}
+
+.header::after {
+  width: 100%;
+  margin-top: 41px;
+  border-bottom: solid 1px rgba(84, 84, 84, 0.7);
+  align-self: flex-end;
+  content: "";
+}
+
+@media (max-width: 550px) {
+  .header{
+    width: 350px;
+    align-self: center;
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .header{
+    width: 100%;
+    align-self: center;
+  }
+}
+
+@media (max-width: 320px) {
+  .header::after{
+    width: 320vw;
+    margin-top: 35px;
+  }
 }

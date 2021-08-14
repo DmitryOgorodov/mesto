@@ -2,24 +2,20 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  height: 330px;
   width: 430px;
-  position: absolute;
+  position: fixed;
   left: 50%;
   top: 195px;
   transform: translate(-50%);
-  background-image: url(../../images/Popup_Rectangle.png);
-  background-position: center;
+  background-color: white;
+  border-radius: 10px;
   display: none;
+  z-index: 1;
 }
-
-
 
 @media (max-width: 823px) {
   .popup {
     top: 123px;
-    height: 322px;
     width: 282px;
-    background-image: url(../../images/Rectangle_low.png);
   }
 }

@@ -2,11 +2,9 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
-  max-width: 1280px;
-  min-width: 305px;
-  padding: 45px 200px 60px;
-
+  margin: 45px auto 60px;
+  max-width: 880px;
+  min-width: 280px;
   font-family: 'Inter', Arial, sans-serif;
   color: white;
   -moz-osx-font-smoothing: grayscale;
@@ -19,7 +17,12 @@
 
 @media (max-width: 1124px) {
   .page {
-    padding: 28px calc(200px - ((1280px - 100vw)/5.3));
-    padding-bottom: 24px;
+    margin: 45px 100px 60px;
+  }
+}
+
+@media (max-width: 550px) {
+  .page {
+    margin: 32px 20px 24px;
   }
 }
