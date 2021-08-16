@@ -11,18 +11,18 @@
     <header class="header">
       <div class="header__logo"></div>
     </header>
+    <main class=".content"></main>
     <section class="profile">
       <img src="./images/image.jpg" alt="Фото" class="profile__avatar">
       <div class="profile__profile-info">
         <div class="profile__title">
           <h1 class="profile__title-text">Жак-Ив Кусто</h1>
-          <button type="menu" class="profile__title-button"></button>
+          <button type="button" class="profile__title-button"></button>
         </div>
         <p class="profile__caption">Исследователь океана</p>
       </div>
-      <button class="profile__add-button"></button>
+      <button type="button" class="profile__add-button"></button>
     </section>
-    <main class=".content">
       <section class="elements">
         <div class="element">
           <img src="./images/Karachaevsk.png" alt="картинка" class="element__picture">
@@ -32,35 +32,35 @@
           </div>
         </div>
         <div class="element">
-          <img src="./images/Elbruse.png" alt="image" class="element__picture">
+          <img src="./images/Elbruse.png" alt="картинка" class="element__picture">
           <div class="element__caption">
             <p class="element__caption-text">Гора Эльбрус</p>
             <button class="element__like-button"></button>
           </div>
         </div>
         <div class="element">
-          <img src="./images/Dombai.png" alt="image" class="element__picture">
+          <img src="./images/Dombai.png" alt="картинка" class="element__picture">
           <div class="element__caption">
             <p class="element__caption-text">Домбай</p>
             <button class="element__like-button"></button>
           </div>
         </div>
         <div class="element">
-          <img src="./images/Elbruse.png" alt="image" class="element__picture">
+          <img src="./images/Elbruse.png" alt="картинка" class="element__picture">
           <div class="element__caption">
             <p class="element__caption-text">Гора Эльбрус</p>
             <button class="element__like-button"></button>
           </div>
         </div>
         <div class="element">
-          <img src="./images/Dombai.png" alt="image" class="element__picture">
+          <img src="./images/Dombai.png" alt="картинка" class="element__picture">
           <div class="element__caption">
             <p class="element__caption-text">Домбай</p>
             <button class="element__like-button"></button>
           </div>
         </div>
         <div class="element">
-          <img src="./images/Karachaevsk.png" alt="image" class="element__picture">
+          <img src="./images/Karachaevsk.png" alt="картинка" class="element__picture">
           <div class="element__caption">
             <p class="element__caption-text">Карачаево-Черкессия</p>
             <button class="element__like-button"></button>
@@ -69,17 +69,18 @@
       </section>
     </main>
     <footer class="footer">
-      <div class="footer__copyright">&copy; 2021 Mesto Russia</div>
+      <p class="footer__copyright">&copy; 2021 Mesto Russia</p>
     </footer>
-    <section class="pop">
-      <div class="cover"></div>
-      <form name="mestoForm" class="popup">
+    <section class="popup">
+      <div class="popup__form">
+        <button type="reset" class="popup__close-button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input type="text" name="nameField" placeholder="Введите имя" id="nameInput" class="popup__content">
-        <input type="text" name="jobField" placeholder="Введите род деятельности" id="jobInput" class="popup__content">
+        <form name="mestoForm" class="form-element">
+          <input type="text" name="nameField" placeholder="Введите имя" id="nameInput" class="form-element__content">
+          <input type="text" name="jobField" placeholder="Введите род деятельности" id="jobInput" class="form-element__content">
+        </form>
         <button type="submit" class="popup__save-button">Сохранить</button>
-        <button type="reset" class="popup__clouse-button"></button>
-      </form>
+      </div>
     </section>
   </div>
   <script src="./scripts/index.js" defer></script>

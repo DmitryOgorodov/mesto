@@ -1,4 +1,4 @@
-.popup__clouse-button {
+.popup__close-button {
   height: 32px;
   width: 32px;
   border: none;
@@ -8,18 +8,19 @@
   background: none;
   background-image: url(../../../images/Close_Icon.svg);
   cursor: url(../../../images/Cursor.svg) ,pointer;
+  z-index: 1;
 }
 
-.popup__clouse-button:hover {
+.popup__close-button:hover {
   opacity: 0.6;
 }
 
 
 @media (max-width: 823px) {
-  .popup__clouse-button {
+  .popup__close-button {
     height: 20px;
     width: 20px;
-    top: -40px;
+    top: -37px;
     right: 0px;
     background-position: center;
     background-size: contain;
