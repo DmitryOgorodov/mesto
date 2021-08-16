@@ -33,8 +33,6 @@ function formSubmitHandler (evt) {
 
 // Открыть форму
 function openPopup() {
-  let nameInput = document.querySelector('#nameInput');
-  let jobInput = document.querySelector('#jobInput');
   nameInput.value = document.querySelector('.profile__title-text').textContent;
   jobInput.value = document.querySelector('.profile__caption').textContent;
   popup.classList.toggle("popup_is-opened");
