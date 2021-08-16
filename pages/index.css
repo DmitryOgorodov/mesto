@@ -36,4 +36,4 @@
 @import url(../blocks/form-element/__content/form-element__content.css);
 @import url(../blocks/popup/__save-button/popup__save-button.css);
 @import url(../blocks/popup/__close-button/popup__close-button.css);
-@import url(../blocks/popup/_is-opened/pop_is-opened.css);
+@import url(../blocks/popup/_is-opened/popup_is-opened.css);
