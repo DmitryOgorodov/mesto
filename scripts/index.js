@@ -13,19 +13,20 @@ let formElement = document.querySelector(".form-element");
 let nameInput = document.querySelector('#nameInput');
 let jobInput = document.querySelector('#jobInput');
 
+// Выбор элементов, куда должны быть вставлены значения полей
+let profile = document.querySelector(".profile__title-text");
+let caption = document.querySelector(".profile__caption");
+
 // Обработчик «отправки» формы
 function formSubmitHandler (evt) {
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
                                                 // Так мы можем определить свою логику отправки.
                                                 // О том, как это делать, расскажем позже.
 
-    let nInput = nameInput.value; // Получите значение полей jobInput и nameInput из свойства value
+    let nInput = nameInput.value; // Получение значения полей jobInput и nameInput из свойства value
     let jInput = jobInput.value;
 
-    let profile = document.querySelector(".profile__title-text"); // Выберите элементы, куда должны быть вставлены значения полей
-    let caption = document.querySelector(".profile__caption");
-
-    profile.textContent = nInput; // Вставьте новые значения с помощью textContent
+    profile.textContent = nInput; // Вставка новых значений с помощью textContent
     caption.textContent = jInput;
 
     closePopup();
@@ -33,8 +34,10 @@ function formSubmitHandler (evt) {
 
 // Открыть форму
 function openPopup() {
-  nameInput.value = document.querySelector('.profile__title-text').textContent;
-  jobInput.value = document.querySelector('.profile__caption').textContent;
+  let pInput = profile.textContent;
+  let cInput = caption.textContent;
+  nameInput.value = pInput;
+  jobInput.value = cInput;
   popup.classList.toggle("popup_is-opened");
 }
 
