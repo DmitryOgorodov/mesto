@@ -175,6 +175,10 @@ elementElement.querySelector('.element__like-button').addEventListener('click', 
   evt.target.classList.toggle('element__like-button_active');
 });
 
+elementElement.querySelector('.element__delete-button').addEventListener('click', function (evt) {
+  evt.target.closest('.element').remove();
+});
+
 elements.append(elementElement);
 })
 
@@ -195,7 +199,7 @@ let newElementValue = [
   document.querySelector(".profile__caption"),
 ];
 
-// Обработчик «отправки» формы
+// Обработчик «отправки» формы редактирования профиля
 function formSubmitHandler (evt) {
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
                                                 // Так мы можем определить свою логику отправки.
@@ -218,6 +222,10 @@ function formAddCardHandler (evt) {
 
   elementEl.querySelector('.element__like-button').addEventListener('click', function (evt) {
     evt.target.classList.toggle('element__like-button_active');
+  });
+
+  elementEl.querySelector('.element__delete-button').addEventListener('click', function (evt) {
+    evt.target.closest('.element').remove();
   });
 
   elements.prepend(elementEl);
@@ -249,3 +257,4 @@ openButton.addEventListener('click', openPopup);
 closeButton[0].addEventListener('click', closePopup);
 closeButton[1].addEventListener('click', addPopup);
 addButton.addEventListener('click', addPopup);
+
