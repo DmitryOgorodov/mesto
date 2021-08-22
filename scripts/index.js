@@ -171,6 +171,10 @@ const elementElement = elementTemplate.querySelector('.element').cloneNode(true)
 elementElement.querySelector('.element__picture').src = item.link;
 elementElement.querySelector('.element__caption-text').textContent = item.name;
 
+elementElement.querySelector('.element__like-button').addEventListener('click', function (evt) {
+  evt.target.classList.toggle('element__like-button_active');
+});
+
 elements.append(elementElement);
 })
 
@@ -212,6 +216,10 @@ function formAddCardHandler (evt) {
   elementEl.querySelector('.element__picture').src = formElementInput[3].value;
   elementEl.querySelector('.element__caption-text').textContent = formElementInput[2].value;
 
+  elementEl.querySelector('.element__like-button').addEventListener('click', function (evt) {
+    evt.target.classList.toggle('element__like-button_active');
+  });
+
   elements.prepend(elementEl);
 
   addPopup();
@@ -224,12 +232,12 @@ function openPopup() {
   formElementInput[1].value = newElementValue[1].textContent;
 }
 
-//Скрыть форму ректаривания профиля
+// Скрыть форму ректаривания профиля
 function closePopup() {
   popup[0].classList.toggle("popup_is-opened");
 }
 
-//Открыть (Скрыть) форму добавления карточек
+// Открыть (Скрыть) форму добавления карточек
 function addPopup () {
   popup[1].classList.toggle("popup_is-opened");
 }
