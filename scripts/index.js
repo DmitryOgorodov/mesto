@@ -123,17 +123,18 @@ addButton.addEventListener('click', changePopup);*/
 
 
 // Добавление popup
-let popup = document.querySelector(".popup");
+let popup = document.querySelectorAll(".popup");
 
 // Добавление elements
 const elements = document.querySelector('.elements');
-// Добавление templates
+
+// Добавление template
 const elementTemplate = document.querySelector('#element-template').content;
 
 // Добавление кнопок
 let openButton = document.querySelector(".profile__title-button");
 let saveButton = document.querySelector(".popup__save-button");
-let closeButton = document.querySelector(".popup__close-button");
+let closeButton = document.querySelectorAll(".popup__close-button");
 let addButton = document.querySelector(".profile__add-button");
 
 const initialCards = [
@@ -174,18 +175,20 @@ elements.append(elementElement);
 })
 
 // Находим форму в DOM
-let formElement = document.querySelector(".form-element");
+let formElement = document.querySelectorAll(".form-element");
 
 // Находим поля формы в DOM
 let formElementInput = [
   document.querySelector('#nameInput'),
-  document.querySelector('#jobInput')
+  document.querySelector('#jobInput'),
+  document.querySelector('#placeInput'),
+  document.querySelector('#srcInput'),
 ];
 
 // Выбор элементов, куда должны быть вставлены значения полей
 let newElementValue = [
   document.querySelector(".profile__title-text"),
-  document.querySelector(".profile__caption")
+  document.querySelector(".profile__caption"),
 ];
 
 // Обработчик «отправки» формы
@@ -200,20 +203,41 @@ function formSubmitHandler (evt) {
     closePopup();
 }
 
-// Открыть форму
+// Обработчик «отправки» формы добавления карточек
+function formAddCardHandler (evt) {
+  evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
+
+  const elementEl = elementTemplate.querySelector('.element').cloneNode(true);
+
+  elementEl.querySelector('.element__picture').src = formElementInput[3].value;
+  elementEl.querySelector('.element__caption-text').textContent = formElementInput[2].value;
+
+  elements.prepend(elementEl);
+
+  addPopup();
+}
+
+// Открыть форму ректаривания профиля
 function openPopup() {
+  popup[0].classList.toggle("popup_is-opened");
   formElementInput[0].value = newElementValue[0].textContent;
   formElementInput[1].value = newElementValue[1].textContent;
-  popup.classList.toggle("popup_is-opened");
 }
 
-//Скрыть форму
+//Скрыть форму ректаривания профиля
 function closePopup() {
-  popup.classList.toggle("popup_is-opened");
+  popup[0].classList.toggle("popup_is-opened");
 }
 
+//Открыть (Скрыть) форму добавления карточек
+function addPopup () {
+  popup[1].classList.toggle("popup_is-opened");
+}
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
-formElement.addEventListener('submit', formSubmitHandler);
+formElement[0].addEventListener('submit', formSubmitHandler);
+formElement[1].addEventListener('submit', formAddCardHandler)
 openButton.addEventListener('click', openPopup);
-closeButton.addEventListener('click', closePopup);
+closeButton[0].addEventListener('click', closePopup);
+closeButton[1].addEventListener('click', addPopup);
+addButton.addEventListener('click', addPopup);
