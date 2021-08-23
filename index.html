@@ -71,7 +71,7 @@
     <footer class="footer">
       <p class="footer__copyright">&copy; 2021 Mesto Russia</p>
     </footer>
-    <section class="popup" id="edit-form">
+    <section class="popup" id="edit-form-popup">
       <div class="popup__form">
         <button type="reset" id="reset-edit-form" class="popup__close-button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
@@ -82,15 +82,22 @@
         </form>
       </div>
     </section>
-    <section class="popup" id="popup-card-form">
+    <section class="popup" id="card-form-popup">
       <div class="popup__form">
-        <button type="reset" id="reset-edit-form" class="popup__close-button"></button>
+        <button type="reset" id="reset-card-form" class="popup__close-button"></button>
         <h2 class="popup__title">Новое место</h2>
         <form name="mestoForm" class="form-element">
           <input type="text" name="placeField" placeholder="Название" id="placeInput" class="form-element__content">
           <input type="text" name="linkField" placeholder="Ссылка на картинку" id="srcInput" class="form-element__content">
           <button type="submit" class="popup__save-button">Создать</button>
         </form>
+      </div>
+    </section>
+    <section class="popup" id="picture-popup">
+      <div class = "popup__picture-form">
+        <button type="reset" id="reset-picture-form" class="popup__close-button"></button>
+        <img src="" class="popup__picture">
+        <p class="popup__picture-caption"></p>
       </div>
     </section>
     <template id="element-template">

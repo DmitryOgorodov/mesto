@@ -121,9 +121,10 @@ addButton.addEventListener('click', changePopup);*/
 
 
 
-
 // Добавление popup
-let popup = document.querySelectorAll(".popup");
+let editFormPopup = document.getElementById('edit-form-popup');
+let cardFormPopup = document.getElementById('card-form-popup');
+let picturePopup = document.getElementById('picture-popup');
 
 // Добавление elements
 const elements = document.querySelector('.elements');
@@ -131,12 +132,17 @@ const elements = document.querySelector('.elements');
 // Добавление template
 const elementTemplate = document.querySelector('#element-template').content;
 
-// Добавление кнопок
-let openButton = document.querySelector(".profile__title-button");
-let saveButton = document.querySelector(".popup__save-button");
-let closeButton = document.querySelectorAll(".popup__close-button");
-let addButton = document.querySelector(".profile__add-button");
+// Кнопки открытия форм
+const openButton = document.querySelector('.profile__title-button');
+const saveButton = document.querySelector('.popup__save-button');
+const addButton = document.querySelector('.profile__add-button');
 
+// Кнопки закрытия форм
+const closeEditButton = document.getElementById('reset-edit-form');
+const closeCardButton = document.getElementById('reset-card-form');
+const closePictureButton = document.getElementById('reset-picture-form');
+
+// Карточки по умолчанию
 const initialCards = [
   {
     name: 'Архыз',
@@ -164,61 +170,64 @@ const initialCards = [
   }
 ];
 
-//
 initialCards.forEach(function(item) {
-const elementElement = elementTemplate.querySelector('.element').cloneNode(true);
+  const elementElement = elementTemplate.querySelector('.element').cloneNode(true);
 
-elementElement.querySelector('.element__picture').src = item.link;
-elementElement.querySelector('.element__caption-text').textContent = item.name;
+  elementElement.querySelector('.element__picture').src = item.link;
+  elementElement.querySelector('.element__caption-text').textContent = item.name;
 
-elementElement.querySelector('.element__like-button').addEventListener('click', function (evt) {
-  evt.target.classList.toggle('element__like-button_active');
+  elementElement.querySelector('.element__like-button').addEventListener('click', function (evt) {
+    evt.target.classList.toggle('element__like-button_active');
+  });
+
+  elementElement.querySelector('.element__picture').addEventListener('click', function (evt) {
+   picturePopup.classList.toggle("popup_is-opened");
+   document.querySelector('.popup__picture').src = item.link;
+   document.querySelector('.popup__picture-caption').textContent = item.name;
+  });
+
+  elementElement.querySelector('.element__delete-button').addEventListener('click', function (evt) {
+    evt.target.closest('.element').remove();
+  });
+
+  elements.append(elementElement);
 });
-
-elementElement.querySelector('.element__delete-button').addEventListener('click', function (evt) {
-  evt.target.closest('.element').remove();
-});
-
-elements.append(elementElement);
-})
 
 // Находим форму в DOM
 let formElement = document.querySelectorAll(".form-element");
 
 // Находим поля формы в DOM
-let formElementInput = [
-  document.querySelector('#nameInput'),
-  document.querySelector('#jobInput'),
-  document.querySelector('#placeInput'),
-  document.querySelector('#srcInput'),
-];
+  const nameInput = document.querySelector('#nameInput');
+  const jobInput = document.querySelector('#jobInput');
+  const placeInput = document.querySelector('#placeInput');
+  const srcInput = document.querySelector('#srcInput');
+
 
 // Выбор элементов, куда должны быть вставлены значения полей
-let newElementValue = [
-  document.querySelector(".profile__title-text"),
-  document.querySelector(".profile__caption"),
-];
+  let titleTextInput = document.querySelector('.profile__title-text');
+  let captionInput = document.querySelector('.profile__caption');
 
-// Обработчик «отправки» формы редактирования профиля
+
+// Редактирование профиля
 function formSubmitHandler (evt) {
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
                                                 // Так мы можем определить свою логику отправки.
                                                 // О том, как это делать, расскажем позже.
 
-    newElementValue[0].textContent = formElementInput[0].value; // Получение значения полей из свойства value
-    newElementValue[1].textContent = formElementInput[1].value; // Вставка новых значений с помощью textContent
+    titleTextInput.textContent = nameInput.value; // Получение значения полей из свойства value
+    captionInput.textContent = jobInput .value; // Вставка новых значений с помощью textContent
 
     closePopup();
 }
 
-// Обработчик «отправки» формы добавления карточек
+// Добавление карточек
 function formAddCardHandler (evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
 
   const elementEl = elementTemplate.querySelector('.element').cloneNode(true);
 
-  elementEl.querySelector('.element__picture').src = formElementInput[3].value;
-  elementEl.querySelector('.element__caption-text').textContent = formElementInput[2].value;
+  elementEl.querySelector('.element__picture').src = srcInput.value;
+  elementEl.querySelector('.element__caption-text').textContent = placeInput.value;
 
   elementEl.querySelector('.element__like-button').addEventListener('click', function (evt) {
     evt.target.classList.toggle('element__like-button_active');
@@ -233,28 +242,32 @@ function formAddCardHandler (evt) {
   addPopup();
 }
 
-// Открыть форму ректаривания профиля
+// Открыть форму редактирования профиля
 function openPopup() {
-  popup[0].classList.toggle("popup_is-opened");
-  formElementInput[0].value = newElementValue[0].textContent;
-  formElementInput[1].value = newElementValue[1].textContent;
+  editFormPopup.classList.toggle("popup_is-opened");
+  nameInput.value = titleTextInput.textContent;
+  jobInput.value = captionInput.textContent;
 }
 
-// Скрыть форму ректаривания профиля
+// Скрыть форму редактирования профиля
 function closePopup() {
-  popup[0].classList.toggle("popup_is-opened");
+  editFormPopup.classList.toggle("popup_is-opened");
 }
 
 // Открыть (Скрыть) форму добавления карточек
 function addPopup () {
-  popup[1].classList.toggle("popup_is-opened");
+  cardFormPopup.classList.toggle("popup_is-opened");
+}
+
+function addPicturePopup() {
+  picturePopup.classList.toggle("popup_is-opened");
 }
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
 formElement[0].addEventListener('submit', formSubmitHandler);
 formElement[1].addEventListener('submit', formAddCardHandler)
 openButton.addEventListener('click', openPopup);
-closeButton[0].addEventListener('click', closePopup);
-closeButton[1].addEventListener('click', addPopup);
+closeEditButton.addEventListener('click', closePopup);
+closeCardButton.addEventListener('click', addPopup);
+closePictureButton.addEventListener('click', addPicturePopup);
 addButton.addEventListener('click', addPopup);
-

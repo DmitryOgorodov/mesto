@@ -1,0 +1,10 @@
+.popup__picture-form {
+  max-width: 75vw;
+  max-height: 75vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: center;
+  position: relative;
+}
