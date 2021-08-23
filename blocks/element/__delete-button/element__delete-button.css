@@ -8,7 +8,7 @@
   width: 18px;
   top: 18px;
   right: 18px;
-  cursor: url(../../../images/Cursor.svg) ,pointer;
+  cursor: pointer;
 }
 
 .element__delete-button:hover {

@@ -8,7 +8,7 @@
   border: none;
   margin-right: 20px;
   align-self: center;
-  cursor: url(../../../images/Cursor.svg) ,pointer;
+  cursor: pointer;
 }
 
 .element__like-button:hover {

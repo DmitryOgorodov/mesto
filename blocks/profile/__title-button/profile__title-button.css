@@ -8,7 +8,7 @@
   background-color: black;
   background-repeat: no-repeat;
   background-position: center;
-  cursor: url(../../../images/Cursor.svg) ,pointer;
+  cursor: pointer;
 }
 
 .profile__title-button:hover {

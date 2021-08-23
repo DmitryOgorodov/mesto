@@ -4,7 +4,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-image: url(../../../images/Header-logo.svg);
-    cursor: url(../../../images/Cursor.svg) ,pointer;
+    cursor: pointer;
   }
 
   .header__logo:active {
