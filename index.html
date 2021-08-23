@@ -23,49 +23,7 @@
       </div>
       <button type="button" class="profile__add-button"></button>
     </section>
-      <section class="elements"><!--
-        <div class="element">
-          <img src="./images/Karachaevsk.png" alt="картинка" class="element__picture">
-          <div class="element__caption">
-            <p class="element__caption-text">Карачаевск</p>
-            <button type="button" class="element__like-button"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img src="./images/Elbruse.png" alt="картинка" class="element__picture">
-          <div class="element__caption">
-            <p class="element__caption-text">Гора Эльбрус</p>
-            <button type="button" class="element__like-button"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img src="./images/Dombai.png" alt="картинка" class="element__picture">
-          <div class="element__caption">
-            <p class="element__caption-text">Домбай</p>
-            <button type="button" class="element__like-button"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img src="./images/Elbruse.png" alt="картинка" class="element__picture">
-          <div class="element__caption">
-            <p class="element__caption-text">Гора Эльбрус</p>
-            <button type="button" class="element__like-button"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img src="./images/Dombai.png" alt="картинка" class="element__picture">
-          <div class="element__caption">
-            <p class="element__caption-text">Домбай</p>
-            <button type="button" class="element__like-button"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img src="./images/Karachaevsk.png" alt="картинка" class="element__picture">
-          <div class="element__caption">
-            <p class="element__caption-text">Карачаево-Черкессия</p>
-            <button type="button" class="element__like-button"></button>
-          </div>
-        </div>-->
+      <section class="elements">
       </section>
     </main>
     <footer class="footer">
@@ -73,9 +31,9 @@
     </footer>
     <section class="popup" id="edit-form-popup">
       <div class="popup__form">
-        <button type="reset" id="reset-edit-form" class="popup__close-button"></button>
+        <button type="reset" id="reset-edit-form-button" class="popup__close-button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form name="mestoForm" class="form-element">
+        <form name="mestoForm" id="edit-form" class="form-element">
           <input type="text" name="nameField" placeholder="Введите имя" id="nameInput" class="form-element__content">
           <input type="text" name="jobField" placeholder="Введите род деятельности" id="jobInput" class="form-element__content">
           <button type="submit" class="popup__save-button">Сохранить</button>
@@ -84,18 +42,18 @@
     </section>
     <section class="popup" id="card-form-popup">
       <div class="popup__form">
-        <button type="reset" id="reset-card-form" class="popup__close-button"></button>
+        <button type="reset" id="reset-card-form-button" class="popup__close-button"></button>
         <h2 class="popup__title">Новое место</h2>
-        <form name="mestoForm" class="form-element">
+        <form name="mestoForm" id="card-form" class="form-element">
           <input type="text" name="placeField" placeholder="Название" id="placeInput" class="form-element__content">
           <input type="text" name="linkField" placeholder="Ссылка на картинку" id="srcInput" class="form-element__content">
           <button type="submit" class="popup__save-button">Создать</button>
         </form>
       </div>
     </section>
-    <section class="popup" id="picture-popup">
+    <section class="popup popup_set-opacity" id="picture-popup">
       <div class = "popup__picture-form">
-        <button type="reset" id="reset-picture-form" class="popup__close-button"></button>
+        <button type="reset" id="reset-picture-form-button" class="popup__close-button"></button>
         <img src="" class="popup__picture">
         <p class="popup__picture-caption"></p>
       </div>
