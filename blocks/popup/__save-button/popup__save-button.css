@@ -9,7 +9,7 @@
   line-height: 50px;
   text-align: center;
   color: white;
-  cursor: url(../../../images/Cursor.svg) ,pointer;
+  cursor: pointer;
 }
 
 .popup__save-button:hover {
