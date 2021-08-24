@@ -56,7 +56,7 @@ function loadCard (link, name) {
   const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
 
   cardElement.querySelector('.element__picture').src = link;
-  //cardElement.querySelector('.element__picture').alt = name;
+  cardElement.querySelector('.element__picture').alt = name;
   cardElement.querySelector('.element__caption-text').textContent = name;
 
   cardElement.querySelector('.element__like-button').addEventListener('click', function (evt) {
