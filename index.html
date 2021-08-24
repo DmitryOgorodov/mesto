@@ -23,7 +23,7 @@
       </div>
       <button type="button" class="profile__add-button"></button>
     </section>
-      <section class="elements">
+      <section class="cards">
       </section>
     </main>
     <footer class="footer">
@@ -36,7 +36,7 @@
         <form name="mestoForm" id="edit-form" class="form-element">
           <input type="text" name="nameField" placeholder="Введите имя" id="nameInput" class="form-element__content">
           <input type="text" name="jobField" placeholder="Введите род деятельности" id="jobInput" class="form-element__content">
-          <button type="submit" class="popup__save-button">Сохранить</button>
+          <button type="submit" id="save-profile" class="popup__save-button">Сохранить</button>
         </form>
       </div>
     </section>
@@ -47,7 +47,7 @@
         <form name="mestoForm" id="card-form" class="form-element">
           <input type="text" name="placeField" placeholder="Название" id="placeInput" class="form-element__content">
           <input type="text" name="linkField" placeholder="Ссылка на картинку" id="srcInput" class="form-element__content">
-          <button type="submit" class="popup__save-button">Создать</button>
+          <button type="submit" id="create-card" class="popup__save-button">Создать</button>
         </form>
       </div>
     </section>
@@ -58,7 +58,7 @@
         <p class="popup__picture-caption"></p>
       </div>
     </section>
-    <template id="element-template">
+    <template id="card-template">
       <div class="element">
         <button type="button" class="element__delete-button"></button>
         <img src="" alt="картинка" class="element__picture">

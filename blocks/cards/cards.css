@@ -1,4 +1,4 @@
-.elements {
+.cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(282px, 1fr));
   grid-auto-rows: minmax(361px, auto);
@@ -7,7 +7,7 @@
 }
 
 @media (max-width: 550px) {
-  .elements {
+  .cards {
     margin: 36px 0 0;
   }
 }
