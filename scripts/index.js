@@ -66,7 +66,7 @@ function loadCard (link, name) {
   cardElement.querySelector('.element__picture').addEventListener('click', function (evt) {
    document.querySelector('.popup__picture').src = link;
    document.querySelector('.popup__picture-caption').textContent = name;
-   addPicturePopup();
+   openPopup(picturePopup);
   });
 
   cardElement.querySelector('.element__delete-button').addEventListener('click', function (evt) {
@@ -101,7 +101,7 @@ function profileFormSubmitHandler (evt) {
     profileTitleText.textContent = nameInput.value; // Получение значения полей из свойства value
     profileCaption.textContent = jobInput .value; // Вставка новых значений с помощью textContent
 
-    closeEditProfilePopup();
+    openPopup(editFormPopup);
 }
 
 // Добавление карточек
@@ -110,35 +110,33 @@ function addCardFormHandler (evt) {
 
   loadCard(srcInput.value, placeInput.value);
 
-  addPopup();
+  openPopup(cardFormPopup);
 }
 
 // Открыть форму редактирования профиля
 function openEditProfilePopup() {
-  editFormPopup.classList.toggle("popup_is-opened");
+  openPopup(editFormPopup);
   nameInput.value = profileTitleText.textContent;
   jobInput.value = profileCaption.textContent;
 }
 
-// Скрыть форму редактирования профиля
-function closeEditProfilePopup() {
-  editFormPopup.classList.toggle("popup_is-opened");
-}
-
-// Открыть (Скрыть) форму добавления карточек
-function addPopup () {
-  cardFormPopup.classList.toggle("popup_is-opened");
-}
-
-function addPicturePopup() {
-  picturePopup.classList.toggle("popup_is-opened");
+function openPopup(popupElement) {
+  popupElement.classList.toggle('popup_is-opened');
 }
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
 editForm.addEventListener('submit', profileFormSubmitHandler);
 cardForm.addEventListener('submit', addCardFormHandler);
 openEditFormButton.addEventListener('click', openEditProfilePopup);
-closeEditButton.addEventListener('click', closeEditProfilePopup);
-closeCardButton.addEventListener('click', addPopup);
-closePictureButton.addEventListener('click', addPicturePopup);
-addCardFormButton.addEventListener('click', addPopup);
+closeEditButton.addEventListener('click', function () {
+  openPopup(editFormPopup);
+});
+closeCardButton.addEventListener('click', function () {
+  openPopup(cardFormPopup);
+});
+closePictureButton.addEventListener('click', function () {
+  openPopup(picturePopup);
+});
+addCardFormButton.addEventListener('click', function () {
+  openPopup(cardFormPopup);
+});
