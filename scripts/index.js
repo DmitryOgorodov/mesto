@@ -15,7 +15,6 @@ const cardTemplate = document.querySelector('#card-template').content;
 
 // Кнопки открытия форм
 const openEditFormButton = document.querySelector('.profile__title-button');
-//const saveProfileButton = document.querySelector('.popup__save-button');
 const addCardFormButton = document.querySelector('.profile__add-button');
 
 // Кнопки закрытия форм
@@ -107,10 +106,15 @@ function profileFormSubmitHandler (evt) {
 
 // Добавление карточек
 function addCardFormHandler (evt) {
-  evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-  createCard(srcInput.value, placeInput.value);
+  evt.preventDefault();
+  let card = new Object();
+  card.name = placeInput.value;
+  card.link = srcInput.value;
+  placeInput.value = '';
+  srcInput.value = '';
+  addCard(card);
   openPopup(cardFormPopup);
-}
+};
 
 // Открыть форму редактирования профиля
 function openEditProfilePopup() {
@@ -122,6 +126,7 @@ function openEditProfilePopup() {
 function openPopup(popupElement) {
   popupElement.classList.toggle('popup_is-opened');
 }
+
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
 editForm.addEventListener('submit', profileFormSubmitHandler);
