@@ -51,33 +51,38 @@ const initialCards = [
   }
 ];
 
-// Функция добавления карточек при загрузке страницы
-function loadCard (link, name) {
+// Функция добавления карточек из массива при загрузке страницы
+function createCard (item) {
   const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
 
-  cardElement.querySelector('.element__picture').src = link;
-  cardElement.querySelector('.element__picture').alt = name;
-  cardElement.querySelector('.element__caption-text').textContent = name;
+  cardElement.querySelector('.element__picture').src = item.link;
+  cardElement.querySelector('.element__picture').alt = item.name;
+  cardElement.querySelector('.element__caption-text').textContent = item.name;
 
   cardElement.querySelector('.element__like-button').addEventListener('click', function (evt) {
     evt.target.classList.toggle('element__like-button_active');
   });
 
   cardElement.querySelector('.element__picture').addEventListener('click', function (evt) {
-   document.querySelector('.popup__picture').src = link;
-   document.querySelector('.popup__picture-caption').textContent = name;
-   openPopup(picturePopup);
+    document.querySelector('.popup__picture').src = item.link;
+    document.querySelector('.popup__picture-caption').textContent = item.name;
+    openPopup(picturePopup);
   });
 
   cardElement.querySelector('.element__delete-button').addEventListener('click', function (evt) {
     evt.target.closest('.element').remove();
   });
 
+  return cardElement;
+}
+
+function addCard(card) {
+  const cardElement = createCard(card);
   cards.prepend(cardElement);
 }
 
-initialCards.reverse().forEach(function(item) {
-  loadCard (item.link, item.name);
+initialCards.forEach(function(item) {
+  addCard(item);
 });
 
 // Находим поля формы в DOM
@@ -94,22 +99,16 @@ const profileCaption = document.querySelector('.profile__caption');
 
 // Редактирование профиля
 function profileFormSubmitHandler (evt) {
-    evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-                                                // Так мы можем определить свою логику отправки.
-                                                // О том, как это делать, расскажем позже.
-
-    profileTitleText.textContent = nameInput.value; // Получение значения полей из свойства value
-    profileCaption.textContent = jobInput .value; // Вставка новых значений с помощью textContent
-
+    evt.preventDefault();
+    profileTitleText.textContent = nameInput.value;
+    profileCaption.textContent = jobInput .value;
     openPopup(editFormPopup);
 }
 
 // Добавление карточек
 function addCardFormHandler (evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-
-  loadCard(srcInput.value, placeInput.value);
-
+  createCard(srcInput.value, placeInput.value);
   openPopup(cardFormPopup);
 }
 
