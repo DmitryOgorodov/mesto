@@ -51,7 +51,7 @@ const initialCards = [
 ];
 
 // Функция добавления карточек из массива при загрузке страницы
-function createCard (item) {
+function createCard(item) {
   const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
 
   cardElement.querySelector('.element__picture').src = item.link;
@@ -64,8 +64,9 @@ function createCard (item) {
 
   cardElement.querySelector('.element__picture').addEventListener('click', function (evt) {
     document.querySelector('.popup__picture').src = item.link;
+    document.querySelector('.popup__picture').src = item.name;
     document.querySelector('.popup__picture-caption').textContent = item.name;
-    openPopup(picturePopup);
+    togglePopupState(picturePopup);
   });
 
   cardElement.querySelector('.element__delete-button').addEventListener('click', function (evt) {
@@ -98,32 +99,32 @@ const profileCaption = document.querySelector('.profile__caption');
 
 // Редактирование профиля
 function profileFormSubmitHandler (evt) {
-    evt.preventDefault();
-    profileTitleText.textContent = nameInput.value;
-    profileCaption.textContent = jobInput .value;
-    openPopup(editFormPopup);
+  evt.preventDefault();
+  profileTitleText.textContent = nameInput.value;
+  profileCaption.textContent = jobInput .value;
+  togglePopupState(editFormPopup);
 }
 
 // Добавление карточек
 function addCardFormHandler (evt) {
   evt.preventDefault();
-  let card = new Object();
+  const card = new Object();
   card.name = placeInput.value;
   card.link = srcInput.value;
   placeInput.value = '';
   srcInput.value = '';
   addCard(card);
-  openPopup(cardFormPopup);
+  togglePopupState(cardFormPopup);
 };
 
 // Открыть форму редактирования профиля
 function openEditProfilePopup() {
-  openPopup(editFormPopup);
+  togglePopupState(editFormPopup);
   nameInput.value = profileTitleText.textContent;
   jobInput.value = profileCaption.textContent;
 }
 
-function openPopup(popupElement) {
+function togglePopupState(popupElement) {
   popupElement.classList.toggle('popup_is-opened');
 }
 
@@ -133,14 +134,14 @@ editForm.addEventListener('submit', profileFormSubmitHandler);
 cardForm.addEventListener('submit', addCardFormHandler);
 openEditFormButton.addEventListener('click', openEditProfilePopup);
 closeEditButton.addEventListener('click', function () {
-  openPopup(editFormPopup);
+  togglePopupState(editFormPopup);
 });
 closeCardButton.addEventListener('click', function () {
-  openPopup(cardFormPopup);
+  togglePopupState(cardFormPopup);
 });
 closePictureButton.addEventListener('click', function () {
-  openPopup(picturePopup);
+  togglePopupState(picturePopup);
 });
 addCardFormButton.addEventListener('click', function () {
-  openPopup(cardFormPopup);
+  togglePopupState(cardFormPopup);
 });
