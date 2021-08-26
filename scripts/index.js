@@ -64,7 +64,7 @@ function createCard(item) {
 
   cardElement.querySelector('.element__picture').addEventListener('click', function (evt) {
     document.querySelector('.popup__picture').src = item.link;
-    document.querySelector('.popup__picture').src = item.name;
+    document.querySelector('.popup__picture').alt = item.name;
     document.querySelector('.popup__picture-caption').textContent = item.name;
     togglePopupState(picturePopup);
   });
@@ -98,7 +98,7 @@ const profileCaption = document.querySelector('.profile__caption');
 
 
 // Редактирование профиля
-function profileFormSubmitHandler (evt) {
+function profileFormSubmitHandler(evt) {
   evt.preventDefault();
   profileTitleText.textContent = nameInput.value;
   profileCaption.textContent = jobInput .value;
@@ -106,7 +106,7 @@ function profileFormSubmitHandler (evt) {
 }
 
 // Добавление карточек
-function addCardFormHandler (evt) {
+function addCardFormHandler(evt) {
   evt.preventDefault();
   const card = new Object();
   card.name = placeInput.value;
