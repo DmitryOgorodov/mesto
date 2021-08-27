@@ -108,9 +108,10 @@ function profileFormSubmitHandler(evt) {
 // Добавление карточек
 function addCardFormHandler(evt) {
   evt.preventDefault();
-  const card = new Object();
-  card.name = placeInput.value;
-  card.link = srcInput.value;
+  const card = {
+    name: placeInput.value,
+    link: srcInput.value
+  }
   placeInput.value = '';
   srcInput.value = '';
   addCard(card);
