@@ -7,6 +7,12 @@ const picturePopup = document.querySelector('#picture-popup');
 const editForm = document.querySelector('#edit-form');
 const cardForm = document.querySelector('#card-form');
 
+// Находим поля формы в DOM
+const nameInput = document.querySelector('#nameInput');
+const jobInput = document.querySelector('#jobInput');
+const placeInput = document.querySelector('#placeInput');
+const srcInput = document.querySelector('#srcInput');
+
 // Находим cards
 const cards = document.querySelector('.cards');
 
@@ -85,13 +91,6 @@ initialCards.forEach(function(item) {
   addCard(item);
 });
 
-// Находим поля формы в DOM
-const nameInput = document.querySelector('#nameInput');
-const jobInput = document.querySelector('#jobInput');
-const placeInput = document.querySelector('#placeInput');
-const srcInput = document.querySelector('#srcInput');
-
-
 // Выбор элементов, куда должны быть вставлены значения полей
 const profileTitleText = document.querySelector('.profile__title-text');
 const profileCaption = document.querySelector('.profile__caption');
@@ -101,7 +100,7 @@ const profileCaption = document.querySelector('.profile__caption');
 function profileFormSubmitHandler(evt) {
   evt.preventDefault();
   profileTitleText.textContent = nameInput.value;
-  profileCaption.textContent = jobInput .value;
+  profileCaption.textContent = jobInput.value;
   togglePopupState(editFormPopup);
 }
 

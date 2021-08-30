@@ -34,8 +34,10 @@
         <button type="reset" id="reset-edit-form-button" class="popup__close-button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
         <form name="mestoForm" id="edit-form" class="form-element">
-          <input type="text" name="nameField" placeholder="Введите имя" id="nameInput" class="form-element__content">
-          <input type="text" name="jobField" placeholder="Введите род деятельности" id="jobInput" class="form-element__content">
+          <input type="text" name="nameField" placeholder="Введите имя" id="nameInput" minlength="2" maxlength="40" class="form-element__content">
+          <span class="form-element__content-error" id="nameInput-error"></span>
+          <input type="text" name="jobField" placeholder="Введите род деятельности" id="jobInput" minlength="2" maxlength="200" class="form-element__content">
+          <span class="form-element__content-error" id="jobInput-error"></span>
           <button type="submit" id="save-profile" class="popup__save-button">Сохранить</button>
         </form>
       </div>
@@ -44,9 +46,11 @@
       <div class="popup__form">
         <button type="reset" id="reset-card-form-button" class="popup__close-button"></button>
         <h2 class="popup__title">Новое место</h2>
-        <form name="mestoForm" id="card-form" class="form-element">
-          <input type="text" name="placeField" placeholder="Название" id="placeInput" class="form-element__content">
+        <form name="pictureForm" id="card-form" class="form-element">
+          <input type="text" name="placeField" placeholder="Название" id="placeInput" minlength="2" maxlength="30" class="form-element__content">
+          <span class="form-element__content-error" id="placeInput-error"></span>
           <input type="text" name="linkField" placeholder="Ссылка на картинку" id="srcInput" class="form-element__content">
+          <span class="form-element__content-error" id="srcInput-error"></span>
           <button type="submit" id="create-card" class="popup__save-button">Создать</button>
         </form>
       </div>
@@ -70,5 +74,6 @@
     </template>
   </div>
   <script src="./scripts/index.js" defer></script>
+  <script src="./scripts/validate.js"></script>
 </body>
 </html>
